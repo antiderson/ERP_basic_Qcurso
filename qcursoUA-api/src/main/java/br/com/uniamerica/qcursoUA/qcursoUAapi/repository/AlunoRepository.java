@@ -12,12 +12,7 @@ import java.util.Optional;
 @Repository
 public interface AlunoRepository extends JpaRepository<Aluno,Long> {
 
-    @Query(value = "select * from qcursoua.td_alunos where id = :id", nativeQuery = true)
-    public Optional<Aluno> findById(@Param("id") final Long id);
-
-    @Query("SELECT aluno FROM Aluno aluno WHERE aluno.ativo = true")
-    public List<Aluno> findByAlunosAtivos();
-
+   
 
 
 

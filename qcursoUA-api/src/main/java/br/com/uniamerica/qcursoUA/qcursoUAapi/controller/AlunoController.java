@@ -21,18 +21,7 @@ public class AlunoController {
     @Autowired
     public AlunoService alunoService;
 
-    @GetMapping
-    public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok().body(this.alunoRepository.findByAlunosAtivos());
-    }
-
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Aluno> findById(
-            @PathVariable final Long id
-    ){
-        return ResponseEntity.ok().body(this.alunoRepository.findById(id).orElse(new Aluno()));
-    }
+  
 
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Aluno aluno){
@@ -40,29 +29,8 @@ public class AlunoController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-    @PutMapping("/atualizarGeral/{id}")
-    public ResponseEntity<?> atualizar(
-            @PathVariable final Long id,
-            @RequestBody Aluno aluno
-    ){
-        try{
-            this.alunoService.atualizarGeral(id,aluno);
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-        return ResponseEntity.ok().body("Registro atualizado com sucesso");
-    }
+   
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> excluir(
-            @PathVariable final Long id
-    ){
-        try {
-            this.alunoService.deletarGeral(id);
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-        return ResponseEntity.ok().body("Registro deletado com sucesso");
-    }
+   
 
 }
