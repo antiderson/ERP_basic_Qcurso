@@ -48,6 +48,19 @@ public class AlunoController {
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
     }
 
+@DeleteMapping("/{id}")
+    public ResponseEntity<?> excluir(
+            @PathVariable final Long id
+    ){
+        try {
+            this.alunoService.deletarGeral(id);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Registro deletado com sucesso");
+    }
+
+
 
 
 
