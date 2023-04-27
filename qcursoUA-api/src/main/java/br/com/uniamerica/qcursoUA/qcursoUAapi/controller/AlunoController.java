@@ -29,8 +29,14 @@ public class AlunoController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-   
+    @GetMapping
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok().body(this.alunoRepository.findByAlunosAtivos());
+    }
+
 
    
+
+
 
 }
