@@ -21,5 +21,4 @@ public class Curso extends AbstractEntity{
     @Column(name = "sigla", nullable = false)
     private String sigla;
 
-
 }
