@@ -25,4 +25,3 @@ public class Professor extends AbstractEntity{
     @Column(name = "especialidade", nullable = false)
     private String especialidade;
 
-}
