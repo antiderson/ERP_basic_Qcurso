@@ -28,8 +28,5 @@ public class AlunoController {
         this.alunoRepository.save(aluno);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
-
-   
-
    
 }
