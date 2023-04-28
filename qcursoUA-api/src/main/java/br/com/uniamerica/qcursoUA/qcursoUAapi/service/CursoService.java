@@ -35,6 +35,16 @@ public class CursoService {
         }
     }
 
+    @Transactional
+    public void deletarGeral(final Long id){
+        if (!this.cursoRepository.findById(id).isEmpty()){
+            this.cursoRepository.deleteById(id);
+        }else{
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
+
 
   
 
