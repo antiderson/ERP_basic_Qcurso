@@ -16,7 +16,10 @@ public class CursoService {
     @Autowired
     public CursoRepository cursoRepository;
 
-    
+     public List<Curso> findAll(){
+        return this.cursoRepository.findByCursosAtivos();
+    }
+
 
     @Transactional
     public Curso save(Curso curso){

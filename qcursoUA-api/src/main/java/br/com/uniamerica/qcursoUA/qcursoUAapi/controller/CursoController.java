@@ -29,6 +29,10 @@ public class CursoController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
+    @GetMapping
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok().body(this.cursoRepository.findByCursosAtivos());
+    }
 
 
 
