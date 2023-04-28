@@ -46,7 +46,7 @@ public class AlunoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
-    }
+    } 
 
 
 
