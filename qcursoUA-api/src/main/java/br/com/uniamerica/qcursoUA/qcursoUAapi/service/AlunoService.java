@@ -22,5 +22,19 @@ public class AlunoService {
     }
 
    
+    public List<Aluno> findAll(){
+        return this.alunoRepository.findByAlunosAtivos();
+    }
+
+
+@Transactional
+    public void atualizarGeral(final Long id,final Aluno aluno) {
+        if (id.equals(aluno.getId()) && !this.alunoRepository.findById(id).isEmpty()) {
+            this.alunoRepository.save(aluno);
+        } else {
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
 
 }

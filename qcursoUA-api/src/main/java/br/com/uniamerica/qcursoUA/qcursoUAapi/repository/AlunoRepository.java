@@ -12,7 +12,9 @@ import java.util.Optional;
 @Repository
 public interface AlunoRepository extends JpaRepository<Aluno,Long> {
 
-   
+   @Query("SELECT aluno FROM Aluno aluno WHERE aluno.ativo = true")
+    public List<Aluno> findByAlunosAtivos();
+
 
 
 }
