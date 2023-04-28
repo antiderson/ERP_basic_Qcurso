@@ -33,6 +33,18 @@ public class ProfessorController {
         return ResponseEntity.ok().body(this.professorRepository.findByProfessoresAtivos());
     }
 
+    @PutMapping("/atualizarGeral/{id}")
+    public ResponseEntity<?> atualizar(
+            @PathVariable final Long id,
+            @RequestBody Professor professor
+    ){
+        try{
+            this.professorService.atualizarGeral(id,professor);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Registro atualizado com sucesso");
+    }
 
 
 

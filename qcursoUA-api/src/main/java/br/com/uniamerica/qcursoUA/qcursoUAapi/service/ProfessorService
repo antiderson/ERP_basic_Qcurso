@@ -24,6 +24,17 @@ public class ProfessorService {
         return this.professorRepository.findByProfessoresAtivos();
     }
 
+    
+    @Transactional
+    public void atualizarGeral(final Long id,final Professor professor) {
+        if (id.equals(professor.getId()) && !this.professorRepository.findById(id).isEmpty()) {
+            this.professorRepository.save(professor);
+        } else {
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
+
 
 
 
