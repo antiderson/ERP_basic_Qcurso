@@ -43,7 +43,7 @@ public class AlunoService {
         }else{
             throw new RuntimeException("Id não encontrado");
         }
-    }
+    } 
 
 
 
