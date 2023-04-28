@@ -29,6 +29,7 @@ public class AlunoController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
+
     @GetMapping
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.alunoRepository.findByAlunosAtivos());
@@ -47,8 +48,7 @@ public class AlunoController {
         }
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
     }
-
-@DeleteMapping("/{id}")
+  @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
     ){
@@ -59,8 +59,4 @@ public class AlunoController {
         }
         return ResponseEntity.ok().body("Registro deletado com sucesso");
     }
-
-
-
-
 }

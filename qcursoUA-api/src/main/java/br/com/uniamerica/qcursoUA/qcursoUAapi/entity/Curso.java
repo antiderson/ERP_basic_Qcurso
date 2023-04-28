@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Curso extends AbstractEntity{
 
-
     @Getter @Setter
     @Column(name = "nome", nullable = false)
     private String nome;
