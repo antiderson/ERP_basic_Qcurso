@@ -29,8 +29,5 @@ public class AlunoController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-   
-
-   
 
 }
