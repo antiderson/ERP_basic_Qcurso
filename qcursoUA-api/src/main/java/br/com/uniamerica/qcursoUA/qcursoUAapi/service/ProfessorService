@@ -1,0 +1,26 @@
+package br.com.uniamerica.qcursoUA.qcursoUAapi.service;
+
+
+import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
+import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.ProfessorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+
+@Service
+public class ProfessorService {
+
+    @Autowired
+    public ProfessorRepository professorRepository;
+
+    @Transactional
+     public Professor save(Professor professor){
+        return this.professorRepository.save(professor);
+    }
+
+
+
+
+}
