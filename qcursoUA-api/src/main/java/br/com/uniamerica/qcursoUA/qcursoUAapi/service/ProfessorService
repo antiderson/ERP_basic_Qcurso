@@ -34,6 +34,16 @@ public class ProfessorService {
         }
     }
 
+    @Transactional
+    public void deletarGeral(final Long id){
+        if (!this.professorRepository.findById(id).isEmpty()){
+            this.professorRepository.deleteById(id);
+        }else{
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
+
 
 
 

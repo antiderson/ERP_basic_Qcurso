@@ -47,6 +47,23 @@ public class ProfessorController {
     }
 
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> excluir(
+            @PathVariable final Long id
+    ){
+        try {
+            this.professorService.deletarGeral(id);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Registro deletado com sucesso");
+    }
+
+
+
+
+
+
 
 
 
