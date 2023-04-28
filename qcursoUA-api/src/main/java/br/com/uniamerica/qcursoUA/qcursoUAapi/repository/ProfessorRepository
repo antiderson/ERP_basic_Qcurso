@@ -13,6 +13,8 @@ import java.util.Optional;
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor,Long> {
 
+    @Query("SELECT professor FROM Professor professor WHERE professor.ativo = true")
+    public List<Professor> findByProfessoresAtivos();
 
 
 

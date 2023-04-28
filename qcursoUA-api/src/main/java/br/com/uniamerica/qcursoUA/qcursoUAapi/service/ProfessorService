@@ -20,6 +20,11 @@ public class ProfessorService {
         return this.professorRepository.save(professor);
     }
 
+     public List<Professor> findAll(){
+        return this.professorRepository.findByProfessoresAtivos();
+    }
+
+
 
 
 

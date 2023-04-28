@@ -28,6 +28,13 @@ public class ProfessorController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
+    @GetMapping
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok().body(this.professorRepository.findByProfessoresAtivos());
+    }
+
+
+
 
 
 
