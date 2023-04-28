@@ -35,5 +35,21 @@ public class CursoController {
     }
 
 
+    @PutMapping("/atualizarGeral/{id}")
+    public ResponseEntity<?> atualizar(
+            @PathVariable final Long id,
+            @RequestBody Curso curso
+    ){
+        try{
+            this.cursoService.atualizarGeral(id,curso);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Registro atualizado com sucesso");
+    }
+
+
+
+
 
 }

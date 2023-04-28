@@ -26,6 +26,16 @@ public class CursoService {
         return this.cursoRepository.save(curso);
     }
 
+    @Transactional
+    public void atualizarGeral(final Long id,final Curso curso) {
+        if (id.equals(curso.getId()) && !this.cursoRepository.findById(id).isEmpty()) {
+            this.cursoRepository.save(curso);
+        } else {
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
+
   
 
 
