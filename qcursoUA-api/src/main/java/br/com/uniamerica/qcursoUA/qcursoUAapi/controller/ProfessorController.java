@@ -1,62 +1,70 @@
 package br.com.uniamerica.qcursoUA.qcursoUAapi.controller;
 
-import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Aluno;
-import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.AlunoRepository;
-import br.com.uniamerica.qcursoUA.qcursoUAapi.service.AlunoService;
+
+import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
+import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.ProfessorRepository;
+import br.com.uniamerica.qcursoUA.qcursoUAapi.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
-@RequestMapping("/api/alunos")
-public class AlunoController {
-
-
+@RequestMapping("/api/professores")
+public class ProfessorController {
 
 
     @Autowired
-    public AlunoRepository alunoRepository;
+    public ProfessorRepository professorRepository;
 
     @Autowired
-    public AlunoService alunoService;
-
-  
+    public ProfessorService professorService;
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Aluno aluno){
-        this.alunoRepository.save(aluno);
+    public ResponseEntity<?> cadastrar(@RequestBody final Professor professor){
+        this.professorRepository.save(professor);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-
     @GetMapping
     public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok().body(this.alunoRepository.findByAlunosAtivos());
+        return ResponseEntity.ok().body(this.professorRepository.findByProfessoresAtivos());
     }
 
-
-   @PutMapping("/atualizarGeral/{id}")
+    @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
-            @RequestBody Aluno aluno
+            @RequestBody Professor professor
     ){
         try{
-            this.alunoService.atualizarGeral(id,aluno);
+            this.professorService.atualizarGeral(id,professor);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
     }
-  @DeleteMapping("/{id}")
+
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
     ){
         try {
-            this.alunoService.deletarGeral(id);
+            this.professorService.deletarGeral(id);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().body("Registro deletado com sucesso");
     }
+
+
+
+
+
+
+
+
+
 }

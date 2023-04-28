@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "td_turmas", schema = "qcursoua")
@@ -27,9 +28,9 @@ public class Turma extends AbstractEntity {
     private Curso curso;
 
     @Getter @Setter
-    @ManyToOne
-    @JoinColumn(name = "id_professor", nullable = false)
-    private Professor professor;
+    @OneToMany
+    @JoinColumn(name = "id_professores", nullable = false)
+    private List<Professor> professores;
 
 
 }

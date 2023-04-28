@@ -36,5 +36,15 @@ public class AlunoService {
         }
     }
 
+    @Transactional
+    public void deletarGeral(final Long id){
+        if (!this.alunoRepository.findById(id).isEmpty()){
+            this.alunoRepository.deleteById(id);
+        }else{
+            throw new RuntimeException("Id não encontrado");
+        }
+    } 
+
+
 
 }
