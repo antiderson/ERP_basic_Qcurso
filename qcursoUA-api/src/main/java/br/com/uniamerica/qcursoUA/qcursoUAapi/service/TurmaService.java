@@ -26,6 +26,16 @@ public class TurmaService {
         return this.turmaRepository.save(turma);
     }
 
+
+    @Transactional
+    public void atualizarGeral(final Long id,final Turma turma) {
+        if (id.equals(turma.getId()) && !this.turmaRepository.findById(id).isEmpty()) {
+            this.turmaRepository.save(turma);
+        } else {
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
     
 
 }

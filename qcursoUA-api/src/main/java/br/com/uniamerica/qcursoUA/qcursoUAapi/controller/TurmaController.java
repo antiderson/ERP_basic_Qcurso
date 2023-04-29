@@ -37,6 +37,19 @@ public class TurmaController {
     }
 
 
+    @PutMapping("/atualizarGeral/{id}")
+    public ResponseEntity<?> atualizar(
+            @PathVariable final Long id,
+            @RequestBody Turma turma
+    ){
+        try{
+            this.turmaService.atualizarGeral(id,turma);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Registro atualizado com sucesso");
+    }
+
 
    
 
