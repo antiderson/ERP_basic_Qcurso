@@ -35,6 +35,17 @@ public class CursoController {
     }
 
 
+
+    @GetMapping("/buscarCursoSigla/{sigla}")//buscar curso sigla
+    public ResponseEntity<Optional<Curso>> findBySigla(
+            @PathVariable final String sigla
+    ){
+        return ResponseEntity.ok().body(this.cursoRepository.findBySigla(sigla));
+    }
+
+
+
+
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
