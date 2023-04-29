@@ -36,6 +36,16 @@ public class TurmaService {
         }
     }
 
+    @Transactional
+    public void deletarGeral(final Long id){
+        if (!this.turmaRepository.findById(id).isEmpty()){
+            this.turmaRepository.deleteById(id);
+        }else{
+            throw new RuntimeException("Id não encontrado");
+        }
+    }
+
+
     
 
 }
