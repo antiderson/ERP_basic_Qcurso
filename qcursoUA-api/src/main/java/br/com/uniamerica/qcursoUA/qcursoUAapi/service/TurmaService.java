@@ -15,6 +15,11 @@ public class TurmaService {
     public TurmaRepository turmaRepository;
 
    
+    public List<Turma> findAll(){
+        return this.turmaRepository.findByTurmasAtivos();
+    }
+
+
 
     @Transactional
     public Turma save(Turma turma){

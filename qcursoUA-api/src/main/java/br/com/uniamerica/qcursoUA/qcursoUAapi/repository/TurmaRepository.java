@@ -13,7 +13,9 @@ import java.util.Optional;
 
 @Repository
 public interface TurmaRepository extends JpaRepository<Turma,Long> {
-
+   
+    @Query("SELECT turma FROM Turma turma WHERE turma.ativo = true")
+    public List<Turma> findByTurmasAtivos();
   
 
 

@@ -30,6 +30,14 @@ public class TurmaController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
+
+     @GetMapping
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok().body(this.turmaRepository.findByTurmasAtivos());
+    }
+
+
+
    
 
 
