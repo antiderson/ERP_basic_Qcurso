@@ -19,4 +19,7 @@ public interface TurmaRepository extends JpaRepository<Turma,Long> {
     @Query(value = "select * from qcursoua.tb_turmas where semestre = :semestre", nativeQuery = true)
     public List<Turma> findByTurmaSemestre(@Param("semestre") final Integer semestre);
 
+    @Query(value = "select * from qcursoua.tb_turmas where ano = :ano", nativeQuery = true)
+    public List<Turma> findByTurmaAno(@Param("ano") final Integer ano);
+
 }
