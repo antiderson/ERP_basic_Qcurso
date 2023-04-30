@@ -32,6 +32,13 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaRepository.findByTurmasAtivos());
     }
 
+    @GetMapping("/buscarTurmaSemestre/{semestre}")//buscar turma semestre
+    public ResponseEntity<List<Turma>> findBySemestre(
+            @PathVariable final Integer semestre
+    ){
+        return ResponseEntity.ok().body(this.turmaRepository.findByTurmaSemestre(semestre));
+    }
+    
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
