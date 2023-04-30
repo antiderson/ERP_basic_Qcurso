@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -37,6 +38,11 @@ public class CursoController {
             @PathVariable final String sigla
     ){
         return ResponseEntity.ok().body(this.cursoRepository.findBySigla(sigla));
+    }
+
+    @GetMapping("/buscarCursoNome/{nome}")
+    public ResponseEntity<List<Curso>> findByCursoNome(@PathVariable("nome") String nome){
+        return ResponseEntity.ok().body(this.cursoRepository.findByCursosNomes(nome));
     }
 
     @PutMapping("/atualizarGeral/{id}")

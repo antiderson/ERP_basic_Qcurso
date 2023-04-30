@@ -18,4 +18,7 @@ public interface CursoRepository extends JpaRepository<Curso,Long> {
 
     @Query(value = "select * from qcursoua.tb_cursos where sigla = :sigla", nativeQuery = true)
     public Optional<Curso> findBySigla(@Param("sigla") final String sigla);
+
+    @Query(value = "select * from qcursoua.tb_cursos where nome = :nome", nativeQuery = true)
+    public List<Curso> findByCursosNomes(@Param("nome") final String nome);
 }
