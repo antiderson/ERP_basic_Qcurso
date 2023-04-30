@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/api/alunos")
 public class AlunoController {
@@ -27,6 +29,11 @@ public class AlunoController {
     @GetMapping
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.alunoRepository.findByAlunosAtivos());
+    }
+
+    @GetMapping("/buscarAlunoNome/{nome}")
+    public ResponseEntity<List<Aluno>> findByAlunoNome(@PathVariable("nome") String nome){
+        return ResponseEntity.ok().body(this.alunoRepository.findByAlunosNomes(nome));
     }
 
    @PutMapping("/atualizarGeral/{id}")
