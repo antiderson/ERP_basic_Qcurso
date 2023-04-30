@@ -14,4 +14,10 @@ public interface AlunoRepository extends JpaRepository<Aluno,Long> {
 
    @Query("SELECT aluno FROM Aluno aluno WHERE aluno.ativo = true")
     public List<Aluno> findByAlunosAtivos();
+
+   @Query(value = "select * from qcursoua.tb_alunos where nome = :nome", nativeQuery = true)
+    public List<Aluno> findByAlunosNomes(@Param("nome") final String nome);
+
+
+
 }
