@@ -1,7 +1,6 @@
 package br.com.uniamerica.qcursoUA.qcursoUAapi.controller;
 
 
-import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Turma;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.TurmaRepository;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.service.TurmaService;
@@ -38,7 +37,7 @@ public class TurmaController {
     ){
         return ResponseEntity.ok().body(this.turmaRepository.findByTurmaSemestre(semestre));
     }
-    
+
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
