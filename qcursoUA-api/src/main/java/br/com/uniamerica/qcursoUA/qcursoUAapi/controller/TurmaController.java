@@ -1,58 +1,49 @@
 package br.com.uniamerica.qcursoUA.qcursoUAapi.controller;
 
-import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Curso;
-import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.CursoRepository;
-import br.com.uniamerica.qcursoUA.qcursoUAapi.service.CursoService;
+
+import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
+import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Turma;
+import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.TurmaRepository;
+import br.com.uniamerica.qcursoUA.qcursoUAapi.service.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
+import java.util.List;
 
 @Controller
-@RequestMapping("/api/cursos")
-public class CursoController {
+@RequestMapping("/api/turmas")
+public class TurmaController {
 
 
     @Autowired
-    public CursoRepository cursoRepository;
+    public TurmaRepository turmaRepository;
 
     @Autowired
-    public CursoService cursoService;
-  
-  
+    public TurmaService turmaService;
+
+    
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Curso curso){
-        this.cursoRepository.save(curso);
+    public ResponseEntity<?> cadastrar(@RequestBody final Turma turma){
+        this.turmaRepository.save(turma);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-    @GetMapping
+
+     @GetMapping
     public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok().body(this.cursoRepository.findByCursosAtivos());
+        return ResponseEntity.ok().body(this.turmaRepository.findByTurmasAtivos());
     }
-
-
-
-    @GetMapping("/buscarCursoSigla/{sigla}")//buscar curso sigla
-    public ResponseEntity<Optional<Curso>> findBySigla(
-            @PathVariable final String sigla
-    ){
-        return ResponseEntity.ok().body(this.cursoRepository.findBySigla(sigla));
-    }
-
-
 
 
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
-            @RequestBody Curso curso
+            @RequestBody Turma turma
     ){
         try{
-            this.cursoService.atualizarGeral(id,curso);
+            this.turmaService.atualizarGeral(id,turma);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -65,7 +56,7 @@ public class CursoController {
             @PathVariable final Long id
     ){
         try {
-            this.cursoService.deletarGeral(id);
+            this.turmaService.deletarGeral(id);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -73,6 +64,8 @@ public class CursoController {
     }
 
 
+
+   
 
 
 

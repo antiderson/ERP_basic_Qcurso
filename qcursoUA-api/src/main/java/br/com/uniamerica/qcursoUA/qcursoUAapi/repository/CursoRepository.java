@@ -14,9 +14,12 @@ import java.util.Optional;
 public interface CursoRepository extends JpaRepository<Curso,Long> {
 
 
-  @Query("SELECT curso FROM Curso curso WHERE curso.ativo = true")
+    @Query("SELECT curso FROM Curso curso WHERE curso.ativo = true")
     public List<Curso> findByCursosAtivos();
 
+
+    @Query(value = "select * from qcursoua.td_cursos where sigla = :sigla", nativeQuery = true)
+    public Optional<Curso> findBySigla(@Param("sigla") final String sigla);
 
 
 

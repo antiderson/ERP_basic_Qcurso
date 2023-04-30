@@ -33,6 +33,19 @@ public class ProfessorController {
         return ResponseEntity.ok().body(this.professorRepository.findByProfessoresAtivos());
     }
 
+
+
+    @GetMapping("/buscarProfessorNome/{nome}")//buscar professor nome
+    public ResponseEntity<List<Professor>> findByNome(
+            @PathVariable final String nome
+    ){
+        return ResponseEntity.ok().body(this.professorRepository.findByProfessoresNomes(nome));
+    }
+
+
+
+
+
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
