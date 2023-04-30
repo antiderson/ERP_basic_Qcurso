@@ -12,16 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/alunos")
 public class AlunoController {
 
-
-
-
     @Autowired
     public AlunoRepository alunoRepository;
 
     @Autowired
     public AlunoService alunoService;
-
-  
 
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Aluno aluno){
@@ -29,12 +24,10 @@ public class AlunoController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-
     @GetMapping
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.alunoRepository.findByAlunosAtivos());
     }
-
 
    @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(

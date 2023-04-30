@@ -11,8 +11,6 @@ import java.util.List;
 @Service
 public class CursoService {
 
-
-
     @Autowired
     public CursoRepository cursoRepository;
 
@@ -43,10 +41,4 @@ public class CursoService {
             throw new RuntimeException("Id não encontrado");
         }
     }
-
-
-
-  
-
-
 }

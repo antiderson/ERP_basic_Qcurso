@@ -16,9 +16,6 @@ public interface ProfessorRepository extends JpaRepository<Professor,Long> {
     @Query("SELECT professor FROM Professor professor WHERE professor.ativo = true")
     public List<Professor> findByProfessoresAtivos();
 
-    @Query(value = "select * from qcursoua.td_professores where nome = :nome", nativeQuery = true)
+    @Query(value = "select * from qcursoua.tb_professores where nome = :nome", nativeQuery = true)
     public List<Professor> findByProfessoresNomes(@Param("nome") final String nome);
-
-
-
 }

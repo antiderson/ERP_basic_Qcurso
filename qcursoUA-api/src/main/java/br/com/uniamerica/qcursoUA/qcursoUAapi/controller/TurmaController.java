@@ -15,11 +15,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/api/turmas")
 public class TurmaController {
-
-
     @Autowired
     public TurmaRepository turmaRepository;
-
     @Autowired
     public TurmaService turmaService;
 
@@ -30,12 +27,10 @@ public class TurmaController {
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
-
      @GetMapping
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.turmaRepository.findByTurmasAtivos());
     }
-
 
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
@@ -50,7 +45,6 @@ public class TurmaController {
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
@@ -62,11 +56,4 @@ public class TurmaController {
         }
         return ResponseEntity.ok().body("Registro deletado com sucesso");
     }
-
-
-
-   
-
-
-
 }

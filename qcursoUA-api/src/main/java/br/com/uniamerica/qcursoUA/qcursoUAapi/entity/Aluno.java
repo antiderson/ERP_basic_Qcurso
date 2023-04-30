@@ -8,10 +8,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "td_alunos", schema = "qcursoua")
+@Table(name = "tb_alunos", schema = "qcursoua")
 @NoArgsConstructor
 public class Aluno extends AbstractEntity{
-
     @Getter @Setter
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -28,7 +27,6 @@ public class Aluno extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "id_turma", nullable = true)
     private Turma turma;
-
 
 }
 

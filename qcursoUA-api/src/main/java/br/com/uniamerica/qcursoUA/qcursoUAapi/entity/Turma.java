@@ -9,10 +9,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "td_turmas", schema = "qcursoua")
+@Table(name = "tb_turmas", schema = "qcursoua")
 @NoArgsConstructor
 public class Turma extends AbstractEntity {
-
 
     @Getter @Setter
     @Column(name = "semestre", nullable = false)

@@ -9,10 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "td_cursos", schema = "qcursoua")
+@Table(name = "tb_cursos", schema = "qcursoua")
 @NoArgsConstructor
 public class Curso extends AbstractEntity{
-
     @Getter @Setter
     @Column(name = "nome", nullable = false)
     private String nome;

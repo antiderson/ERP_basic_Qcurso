@@ -1,6 +1,5 @@
 package br.com.uniamerica.qcursoUA.qcursoUAapi.service;
 
-
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +15,14 @@ public class ProfessorService {
     public ProfessorRepository professorRepository;
 
     @Transactional
-     public Professor save(Professor professor){
+    public Professor save(Professor professor){
         return this.professorRepository.save(professor);
     }
 
-     public List<Professor> findAll(){
+    public List<Professor> findAll(){
         return this.professorRepository.findByProfessoresAtivos();
     }
 
-    
     @Transactional
     public void atualizarGeral(final Long id,final Professor professor) {
         if (id.equals(professor.getId()) && !this.professorRepository.findById(id).isEmpty()) {
@@ -42,11 +40,4 @@ public class ProfessorService {
             throw new RuntimeException("Id não encontrado");
         }
     }
-
-
-
-
-
-
-
 }

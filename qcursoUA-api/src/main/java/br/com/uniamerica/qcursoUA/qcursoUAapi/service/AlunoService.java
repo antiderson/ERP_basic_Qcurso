@@ -14,8 +14,6 @@ public class AlunoService {
     @Autowired
     public AlunoRepository alunoRepository;
 
-    
-
     @Transactional
     public Aluno save(Aluno aluno){
         return this.alunoRepository.save(aluno);
@@ -25,7 +23,6 @@ public class AlunoService {
     public List<Aluno> findAll(){
         return this.alunoRepository.findByAlunosAtivos();
     }
-
 
 @Transactional
     public void atualizarGeral(final Long id,final Aluno aluno) {
@@ -43,8 +40,5 @@ public class AlunoService {
         }else{
             throw new RuntimeException("Id não encontrado");
         }
-    } 
-
-
-
+    }
 }

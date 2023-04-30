@@ -24,16 +24,14 @@ public class ProfessorController {
 
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Professor professor){
-        this.professorRepository.save(professor);
+        this.professorService.save(professor);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
     @GetMapping
     public ResponseEntity<?> findAll() {
-        return ResponseEntity.ok().body(this.professorRepository.findByProfessoresAtivos());
+        return ResponseEntity.ok().body(this.professorService.findAll());
     }
-
-
 
     @GetMapping("/buscarProfessorNome/{nome}")//buscar professor nome
     public ResponseEntity<List<Professor>> findByNome(
@@ -41,10 +39,6 @@ public class ProfessorController {
     ){
         return ResponseEntity.ok().body(this.professorRepository.findByProfessoresNomes(nome));
     }
-
-
-
-
 
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
@@ -59,7 +53,6 @@ public class ProfessorController {
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
@@ -71,13 +64,4 @@ public class ProfessorController {
         }
         return ResponseEntity.ok().body("Registro deletado com sucesso");
     }
-
-
-
-
-
-
-
-
-
 }

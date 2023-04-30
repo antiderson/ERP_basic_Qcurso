@@ -13,19 +13,15 @@ import java.util.List;
 public class TurmaService {
     @Autowired
     public TurmaRepository turmaRepository;
-
    
     public List<Turma> findAll(){
         return this.turmaRepository.findByTurmasAtivos();
     }
 
-
-
     @Transactional
     public Turma save(Turma turma){
         return this.turmaRepository.save(turma);
     }
-
 
     @Transactional
     public void atualizarGeral(final Long id,final Turma turma) {
@@ -44,8 +40,4 @@ public class TurmaService {
             throw new RuntimeException("Id não encontrado");
         }
     }
-
-
-    
-
 }

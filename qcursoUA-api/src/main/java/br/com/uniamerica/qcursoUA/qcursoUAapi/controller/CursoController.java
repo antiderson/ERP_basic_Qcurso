@@ -15,13 +15,11 @@ import java.util.Optional;
 @RequestMapping("/api/cursos")
 public class CursoController {
 
-
     @Autowired
     public CursoRepository cursoRepository;
 
     @Autowired
     public CursoService cursoService;
-  
   
     @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Curso curso){
@@ -34,17 +32,12 @@ public class CursoController {
         return ResponseEntity.ok().body(this.cursoRepository.findByCursosAtivos());
     }
 
-
-
     @GetMapping("/buscarCursoSigla/{sigla}")//buscar curso sigla
     public ResponseEntity<Optional<Curso>> findBySigla(
             @PathVariable final String sigla
     ){
         return ResponseEntity.ok().body(this.cursoRepository.findBySigla(sigla));
     }
-
-
-
 
     @PutMapping("/atualizarGeral/{id}")
     public ResponseEntity<?> atualizar(
@@ -58,8 +51,6 @@ public class CursoController {
         }
         return ResponseEntity.ok().body("Registro atualizado com sucesso");
     }
-
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
@@ -71,9 +62,4 @@ public class CursoController {
         }
         return ResponseEntity.ok().body("Registro deletado com sucesso");
     }
-
-
-
-
-
 }
