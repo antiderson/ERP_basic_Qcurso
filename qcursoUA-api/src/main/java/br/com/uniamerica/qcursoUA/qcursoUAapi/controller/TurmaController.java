@@ -1,7 +1,6 @@
 package br.com.uniamerica.qcursoUA.qcursoUAapi.controller;
 
 
-import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Turma;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.TurmaRepository;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.service.TurmaService;
@@ -30,6 +29,20 @@ public class TurmaController {
      @GetMapping
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.turmaRepository.findByTurmasAtivos());
+    }
+
+    @GetMapping("/buscarTurmaSemestre/{semestre}")//buscar turma semestre
+    public ResponseEntity<List<Turma>> findBySemestre(
+            @PathVariable final Integer semestre
+    ){
+        return ResponseEntity.ok().body(this.turmaRepository.findByTurmaSemestre(semestre));
+    }
+
+    @GetMapping("/buscarTurmaAno/{ano}")//buscar turma ano
+    public ResponseEntity<List<Turma>> findByAno(
+            @PathVariable final Integer ano
+    ){
+        return ResponseEntity.ok().body(this.turmaRepository.findByTurmaAno(ano));
     }
 
     @PutMapping("/atualizarGeral/{id}")
