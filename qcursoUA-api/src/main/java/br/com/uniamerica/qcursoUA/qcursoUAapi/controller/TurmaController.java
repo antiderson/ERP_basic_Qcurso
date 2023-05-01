@@ -4,6 +4,7 @@ package br.com.uniamerica.qcursoUA.qcursoUAapi.controller;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Turma;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.TurmaRepository;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.service.TurmaService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,17 +22,20 @@ public class TurmaController {
 
     
     @PostMapping
+    @ApiOperation(value="Cadastra uma turma")
     public ResponseEntity<?> cadastrar(@RequestBody final Turma turma){
         this.turmaRepository.save(turma);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
      @GetMapping
+     @ApiOperation(value="Retorna uma lista com todas as turmas cadastradas")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.turmaRepository.findByTurmasAtivos());
     }
 
     @GetMapping("/buscarTurmaSemestre/{semestre}")//buscar turma semestre
+    @ApiOperation(value="Retorna uma lista com todas as turmas por semestre")
     public ResponseEntity<List<Turma>> findBySemestre(
             @PathVariable final Integer semestre
     ){
@@ -39,6 +43,7 @@ public class TurmaController {
     }
 
     @GetMapping("/buscarTurmaAno/{ano}")//buscar turma ano
+    @ApiOperation(value="Retorna uma lista com todas as turmas por por ano")
     public ResponseEntity<List<Turma>> findByAno(
             @PathVariable final Integer ano
     ){
@@ -46,6 +51,7 @@ public class TurmaController {
     }
 
     @PutMapping("/atualizarGeral/{id}")
+    @ApiOperation(value="Edita a turma")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
             @RequestBody Turma turma
@@ -59,6 +65,7 @@ public class TurmaController {
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value="Deleta a turma")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
     ){
