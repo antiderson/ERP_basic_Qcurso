@@ -37,13 +37,6 @@ public class Professor extends AbstractEntity {
     @Column(name = "especialidade", nullable = false)
     private String especialidade;
 
-     public Professor(String nome, String endereco, String especialidade){
-        this.nome = nome;
-        this.endereco = endereco;
-        this.especialidade = especialidade;
-    }
-
-
     public String getNome(){
         return nome;
     }

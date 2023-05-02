@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/QCursoUA.iml" filepath="$PROJECT_DIR$/.idea/QCursoUA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/qcursoUA-api/qcursoUA-api.iml" filepath="$PROJECT_DIR$/qcursoUA-api/qcursoUA-api.iml" />
     </modules>
   </component>
 </project>
