@@ -64,4 +64,5 @@ public class ProfessorController {
         }
         return ResponseEntity.ok().body("Registro deletado com sucesso");
     }
+
 }

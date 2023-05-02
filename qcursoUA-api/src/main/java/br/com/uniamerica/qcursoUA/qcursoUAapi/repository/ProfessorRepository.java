@@ -18,4 +18,5 @@ public interface ProfessorRepository extends JpaRepository<Professor,Long> {
 
     @Query(value = "select * from qcursoua.tb_professores where nome = :nome", nativeQuery = true)
     public List<Professor> findByProfessoresNomes(@Param("nome") final String nome);
+
 }
