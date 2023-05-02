@@ -20,5 +20,17 @@ public class Curso extends AbstractEntity{
     @Column(name = "sigla", nullable = false)
     private String sigla;
 
+   public Curso(String nome, String sigla) {
+        this.nome = nome;
+        this.sigla = sigla;
+    }
+    
+    public String getNome() {//teste integracao
+        return nome;
+    }
+
+    public String getSigla() {//teste integracao
+        return sigla;
+    }
 
 }
