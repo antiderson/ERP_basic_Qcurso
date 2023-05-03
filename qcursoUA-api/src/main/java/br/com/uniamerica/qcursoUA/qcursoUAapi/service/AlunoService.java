@@ -24,6 +24,11 @@ public class AlunoService {
         return this.alunoRepository.findByAlunosAtivos();
     }
 
+    public Aluno findById(Long id) {
+        return alunoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+    }
+
 @Transactional
     public void atualizarGeral(final Long id,final Aluno aluno) {
         if (id.equals(aluno.getId()) && !this.alunoRepository.findById(id).isEmpty()) {

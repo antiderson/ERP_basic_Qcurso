@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.List;
 
-public class TurmaTest {
+class TurmaTest {
 
 
     private Turma turma;
