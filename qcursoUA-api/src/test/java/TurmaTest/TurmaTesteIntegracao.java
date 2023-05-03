@@ -1,4 +1,4 @@
-package br.com.uniamerica.qcursoUA.qcursoUAapi;
+package TurmaTest;
 
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Curso;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;

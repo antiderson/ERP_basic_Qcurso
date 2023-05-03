@@ -4,6 +4,7 @@ package br.com.uniamerica.qcursoUA.qcursoUAapi.controller;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.repository.ProfessorRepository;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.service.ProfessorService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,17 +24,20 @@ public class ProfessorController {
     public ProfessorService professorService;
 
     @PostMapping
+    @ApiOperation(value="Cadastra um professor novo")
     public ResponseEntity<?> cadastrar(@RequestBody final Professor professor){
         this.professorService.save(professor);
         return ResponseEntity.ok().body("Registro cadastrado com sucesso");
     }
 
     @GetMapping
+    @ApiOperation(value="Lista todos os professores")
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok().body(this.professorService.findAll());
     }
 
     @GetMapping("/buscarProfessorNome/{nome}")//buscar professor nome
+    @ApiOperation(value="Lista todos os professores por nome")
     public ResponseEntity<List<Professor>> findByNome(
             @PathVariable final String nome
     ){
@@ -41,6 +45,7 @@ public class ProfessorController {
     }
 
     @PutMapping("/atualizarGeral/{id}")
+    @ApiOperation(value="Atualiza os professores")
     public ResponseEntity<?> atualizar(
             @PathVariable final Long id,
             @RequestBody Professor professor
@@ -54,6 +59,7 @@ public class ProfessorController {
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value="Deleta professor")
     public ResponseEntity<?> excluir(
             @PathVariable final Long id
     ){

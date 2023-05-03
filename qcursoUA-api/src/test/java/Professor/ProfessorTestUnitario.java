@@ -4,7 +4,7 @@ import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Professor;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ProfessorTest {
+public class ProfessorTestUnitario {
 
     private Professor professor;
     private static String nome;

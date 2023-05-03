@@ -1,4 +1,4 @@
-package br.com.uniamerica.qcursoUA.qcursoUAapi.AlunoTest;
+package AlunoTest;
 
 import br.com.uniamerica.qcursoUA.qcursoUAapi.QcursoUaApiApplication;
 import br.com.uniamerica.qcursoUA.qcursoUAapi.entity.Aluno;
